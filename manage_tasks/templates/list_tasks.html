@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block body %}
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Minhas Missões</h2>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data agendada</th>
+      <th scope="col">Título</th>
+      <th scope="col">Previsão</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+
+  <tr>
+    <th scope="row">{{task.expected_date}} | {{task.prevision_hours}}</th>
+    <td>{{task.title}}</td>
+    <td>Otto</td>
+    {% if task.status_completed %}
+      <td><i class="bi bi-check-circle-fill"></i></td>
+    {% else %}
+      <td><i class="bi bi-chevron-double-right"></i></td>
+    {% endif %}
+    
+  </tr>
+
+{% endfor %}  
+
+  </tbody>
+
+
+{% endblock body %}

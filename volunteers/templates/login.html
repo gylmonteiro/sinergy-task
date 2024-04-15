@@ -19,10 +19,23 @@
         <img id='ilustracao' src='{% static "login/img/ilustracao.png" %}' class='img-fluid text-center'>
     </div>
     <div class='col-md-4 justify-content-center align-items-center' >
-        <form class='text-center border border-success rounded-3 p-2' method='POST' action='{% url "volunteers-login" %}'> 
+        <form class='text-center border border-success rounded-3 p-2 bg-body-secondary' method='POST' action='{% url "volunteers-login" %}'> 
             <img id='logo-redondo' src='{% static "login/img/LOGO_NA_BG.png" %}' class='img-fluid mb-2'>
             {% csrf_token %}
-            {{form.as_p}}
+            <table class='table'>
+                
+                {% comment %} {{form.as_table}} {% endcomment %}
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Usuário" name='username' aria-label="username" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">**</span>
+                    <input type="password" class="form-control" placeholder="Senha" name='password' aria-label="Senha" aria-describedby="basic-addon1">
+                </div>
+                
+            </table>
             <button class='btn btn-success rounded-pill ' type='submit'>Acessar</button>
             <button class='btn btn-outline-success rounded-pill'>Cadastrar usuário</button>
         </form>

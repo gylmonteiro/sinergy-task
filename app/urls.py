@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
   
     path('', include('volunteers.urls')),
+    path('tasks/', include('manage_tasks.urls')),
 ]

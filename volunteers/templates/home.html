@@ -4,7 +4,42 @@
 
 <h1 class='text-center mt-2'> Estamos felizes em termos você juntos para somar</h1>
 
+{% if user.is_authenticated %}
 
+<div class='row justify-content-center '>
+    <div class='col-auto'>
+<a class="btn btn-outline-success btn-lg" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Vamos começar !
+</a>
+</div>
+</div>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Tudo aqui!</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Tudo o que você precisará estará aqui!
+      Criar uma tarefa / Participar de uma tarefa / Atualizar as informações /
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        Veja aqui!
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{% url "create-task" %}">Criar tarefa</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
 
 
 {% endblock body %}
