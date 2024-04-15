@@ -1,6 +1,36 @@
-<form method='POST' action='{% url "volunteers-login" %}'>
-    {% csrf_token %}
-    {{form.as_p}}
+{% extends "base/base.html" %}
+{% load static %}
+{% block head %}
 
-    <button type='submit'>Logar</button> 
-</form>
+    <link rel='stylesheet' href='{% static "login/css/login.css" %}'>
+
+{% endblock head %}
+
+
+
+{% block body %}
+
+
+<div id='container-form' class='row justify-content-center align-items-center'>
+    <h1 class='text-center mt-2'>Sejam bem vindos</h1>
+    <p class='text-center m-0'>Juntos <strong class='text-lg'>somos +</strong></p>
+
+    <div class='col-md-8 justify-content-center align-items-center'> 
+        <img id='ilustracao' src='{% static "login/img/ilustracao.png" %}' class='img-fluid text-center'>
+    </div>
+    <div class='col-md-4 justify-content-center align-items-center' >
+        <form class='text-center border border-success rounded-3 p-2' method='POST' action='{% url "volunteers-login" %}'> 
+            <img id='logo-redondo' src='{% static "login/img/LOGO_NA_BG.png" %}' class='img-fluid mb-2'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class='btn btn-success rounded-pill ' type='submit'>Acessar</button>
+            <button class='btn btn-outline-success rounded-pill'>Cadastrar usuário</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock body %}
+
+{% comment %} teste do body do form {% endcomment %}
+
