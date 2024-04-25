@@ -10,7 +10,5 @@ class TaskModelForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'expected_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'prevision_hours': forms.TimeInput(attrs={'class':'form-control', 'type': 'time'}),
+            'prevision_hours': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
         }
-    
-

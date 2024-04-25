@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views import generic
 from .models import Task
 from .forms import TaskModelForm
@@ -8,9 +7,8 @@ from .forms import TaskModelForm
 class TaskCreateView(generic.CreateView):
     model = Task
     form_class = TaskModelForm
-    success_url ='/'
+    success_url = '/'
     template_name = 'create_task.html'
-
 
     def form_valid(self, form):
         voluntary = self.request.user
