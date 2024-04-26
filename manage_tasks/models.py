@@ -12,6 +12,7 @@ class Task (models.Model):
     prevision_hours = models.TimeField(blank=True, null=True, verbose_name='Horário previsto')
     volunteers = models.ManyToManyField(VoluntaryUser, blank=True, related_name='volunteers', verbose_name='Voluntários envolvidos')
     status_completed = models.BooleanField(default=False, verbose_name='Status da tarefa')
+    details = models.TextField(null=True, blank=True, verbose_name='Detalhes')
 
     class Meta:
         ordering = ['-created_at']
