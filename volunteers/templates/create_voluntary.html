@@ -1,4 +1,83 @@
-<form>
-    {% csrf_token %}
-    {{form.as_p}}
-</form>
+{% extends "base/base.html" %}
+{% load static %}
+{% block head %}
+
+    <link rel='stylesheet' href='{% static "login/css/login.css" %}'>
+
+{% endblock head %}
+
+
+
+{% block body %}
+
+
+<div id='container-form' class='row justify-content-center align-items-center'>
+    <h1 class='text-center mt-2'>Sejam bem vindos</h1>
+    <p class='text-center m-0'>Juntos <strong class='text-lg'>somos +</strong></p>
+
+    <div class='col-md-8 justify-content-center align-items-center'> 
+        <img id='ilustracao' src='{% static "login/img/ilustracao.png" %}' class='img-fluid text-center'>
+    </div>
+    <div class='col-md-4 justify-content-center align-items-center' >
+        <form class='text-center border border-success rounded-3 p-2 bg-body-secondary' method='POST' action='{% url "volunteers-create" %}'> 
+            <img id='logo-redondo' src='{% static "login/img/LOGO_NA_BG.png" %}' class='img-fluid mb-2'>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <table class='table'>
+                
+                {% comment %} {{form.as_table}} {% endcomment %}
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Usuario" name='username' aria-label="username" aria-describedby="basic-addon1">
+                    {% if form.username.errors %}
+                           <div class="invalid-feedback d-block">
+                                {{ form.username.errors }}
+                           </div>
+                    {% endif %}
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">**</span>
+                    <input type="password" class="form-control" placeholder="Senha" name='password' aria-label="Senha" aria-describedby="basic-addon1">
+                    {% if form.password.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">**</span>
+                    <input type="password" class="form-control" placeholder="Confirmar senha" name='confirm_password' aria-label="Senha" aria-describedby="basic-addon1">
+                    {% if form.confirm_password.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.confirm_password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                    <input type="text" class="form-control" placeholder="usuario@mail.com" name='email' aria-label="Senha" aria-describedby="basic-addon1">
+                    {% if form.email.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+            </table>
+            <button class='btn btn-success rounded-pill ' type='submit'>Cadastrar</button>
+           
+        </form>
+    </div>
+
+</div>
+
+{% endblock body %}

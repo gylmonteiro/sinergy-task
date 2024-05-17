@@ -23,12 +23,13 @@
 
             <form method='POST' action='{% url "volunteers-logout" %}'>
               {% csrf_token %}
-              <button class='btn btn-outline-success rounded-pill' type='submit'>Logout</button>
+              <button class='btn btn-outline-success rounded-pill' type='submit'>Sair</button>
             </form>
             
             {% else %}
             <li class="nav-item">
                 <a class="btn btn-outline-success rounded-pill" href="{% url "volunteers-login" %}">Entrar</a>
+                <a class='btn btn-success rounded-pill' href='{% url "volunteers-create" %}' >Cadastrar usuário</a>
             </li>
             {% endif %}
             
